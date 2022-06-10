@@ -1,8 +1,15 @@
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use bracket_lib::prelude::*;
 
 const SCREEN_WIDTH : i32 = 80;
 const SCREEN_HEIGHT : i32 = 50;
 const FRAME_DURATION : f32 = 75.0;
+
+enum GameMode {
+    Menu,
+    Playing,
+    End,
+}
 
 struct State {
     player: Player,
@@ -92,12 +99,6 @@ impl GameState for State {
             GameMode::Playing => self.play(ctx),
         }
     }
-}
-
-enum GameMode {
-    Menu,
-    Playing,
-    End,
 }
 
 struct Player {

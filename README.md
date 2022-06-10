@@ -9,3 +9,13 @@ Rust勉強のために書いているコードを途中経過もコミットし�
 ## First Game
 
 第3章の「Build your first game with Rust」の内容に沿ったコーディングをしています。
+
+## ビルドしたexeを直で叩いたときにコマンドプロンプトを表示しない
+
+`main.rs` の冒頭に次のように書く。
+
+```rust
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+```
+
+参考: [RustでWindowsのコマンドプロンプトウィンドウを抑止する方法](https://qiita.com/LNSEAB/items/6f60da458460274e768d)
